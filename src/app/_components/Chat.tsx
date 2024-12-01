@@ -113,7 +113,7 @@ const Chat = ({
         />
         <Submit />
       </Form>
-      <p className="text-center">Delay 1s (take 100 history message)</p>
+      <p className="text-center">Delay 1s</p>
       <p className="text-center">Take 100 history message</p>
     </section>
   );

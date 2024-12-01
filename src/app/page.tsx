@@ -1,5 +1,8 @@
 import { findManyMessage } from "@/database/message";
+
 import Chat from "./_components/Chat";
+
+export const revalidate = 0;
 
 const HomePage = async () => {
   try {

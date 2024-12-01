@@ -2,26 +2,12 @@
 
 import Form from "next/form";
 import { useEffect, useRef, useState } from "react";
-import { useFormStatus } from "react-dom";
 
 import { InboundMessage } from "ably";
 import { Prisma } from "@prisma/client";
 
 import { createMessage } from "@/database/message";
 import { getClient } from "@/lib/ably";
-
-const Submit = () => {
-  const formStatus = useFormStatus();
-
-  return (
-    <button
-      disabled={formStatus.pending}
-      className="rounded-lg bg-white p-2 text-black"
-    >
-      {formStatus.pending ? "Submitting..." : "Submit"}
-    </button>
-  );
-};
 
 const Chat = ({
   messagesHistory,
@@ -109,10 +95,12 @@ const Chat = ({
           id="content"
           className="w-full rounded-lg p-2 text-black"
         />
-        <Submit />
+        <button type="submit" className="rounded-lg bg-white p-2 text-black">
+          Submit
+        </button>
       </Form>
       <p className="text-center">Delay 1s</p>
-      <p className="text-center">Take 100 history message</p>
+      <p className="text-center">Take 50 history message</p>
     </section>
   );
 };

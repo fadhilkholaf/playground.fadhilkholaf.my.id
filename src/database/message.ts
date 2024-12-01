@@ -9,5 +9,5 @@ export const findManyMessage = async () =>
   await prisma.message.findMany({
     select: { content: true, createdAt: true },
     orderBy: { createdAt: "asc" },
-    take: 100,
+    take: 50,
   });

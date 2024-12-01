@@ -10,6 +10,13 @@ declare global {
       unrealBloomPass: Object3DNode<UnrealBloomPass, typeof UnrealBloomPass>;
     }
   }
+
+  namespace NodeJS {
+    interface ProcessEnv {
+      ABLY_API_KEY: string;
+      DATABASE_URL: string;
+    }
+  }
 }
 
 export interface MeshLineObject extends THREE.Mesh {

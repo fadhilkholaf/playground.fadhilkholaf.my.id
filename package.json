@@ -6,15 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "6.0.0",
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "9.0.0-alpha.8",
     "@react-three/rapier": "^1.5.0",
     "ably": "^2.5.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "keyv": "4.5.4",
     "meshline": "^3.3.1",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",

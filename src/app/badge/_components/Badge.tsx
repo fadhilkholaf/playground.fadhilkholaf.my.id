@@ -85,7 +85,7 @@ const Badge = () => {
         {
           w: 1,
           x: cardRotation.x,
-          y: cardRotation.y + lerpedX.current / 100,
+          y: cardRotation.y /*+ lerpedX.current / 100*/,
           z: cardRotation.z,
         },
         true,

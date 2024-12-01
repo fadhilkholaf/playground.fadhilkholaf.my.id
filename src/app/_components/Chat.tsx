@@ -48,7 +48,7 @@ const Chat = ({
 
   return (
     <section className="flex h-screen w-full flex-col justify-end gap-2 p-8">
-      <ul className="flex flex-col gap-4 overflow-y-auto">
+      <ul className="flex flex-col gap-2 overflow-y-auto">
         {messages.map((message, index) => (
           <li
             key={index}
@@ -99,7 +99,7 @@ const Chat = ({
           Submit
         </button>
       </Form>
-      <p className="text-center">Delay 1s</p>
+      <p className="text-center">Global realtime chat</p>
       <p className="text-center">Take 50 history message</p>
     </section>
   );

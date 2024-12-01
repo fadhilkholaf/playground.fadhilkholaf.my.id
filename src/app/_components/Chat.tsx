@@ -40,16 +40,10 @@ const Chat = ({
   const bottomRef = useRef<HTMLLIElement | null>(null);
 
   const getMessages = async (e: InboundMessage) => {
-    try {
-      const response = await createMessage(e.data.content);
-
-      setMessages((prev) => [
-        ...prev,
-        { content: response.content, createdAt: response.createdAt },
-      ]);
-    } catch (error) {
-      console.log(error);
-    }
+    setMessages((prev) => [
+      ...prev,
+      { content: e.data.content, createdAt: e.data.createdAt },
+    ]);
   };
 
   useEffect(() => {
@@ -93,14 +87,18 @@ const Chat = ({
       </ul>
       <Form
         action={async (formData) => {
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-
           const content = formData.get("content") as string;
 
           if (content) {
-            channel.publish("message", {
-              content,
-            });
+            try {
+              await createMessage(content);
+
+              channel.publish("message", {
+                content,
+              });
+            } catch (error) {
+              console.log(error);
+            }
           }
         }}
         className="flex gap-2"

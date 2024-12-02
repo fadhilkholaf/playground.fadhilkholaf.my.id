@@ -52,21 +52,21 @@ const Chat = ({
         {messages.map((message, index) => (
           <li
             key={index}
-            className="flex justify-between border p-2"
+            className="flex items-end justify-between gap-2 rounded-lg border p-2"
             ref={index === messages.length - 1 ? bottomRef : null}
           >
             <p>{message.content}</p>
-            <p>
-              {new Intl.DateTimeFormat("id-ID", {
+            <p className="text-xs">
+              {`${new Intl.DateTimeFormat("id-ID", {
                 day: "numeric",
-                month: "long",
+                month: "short",
                 year: "numeric",
-              }).format(message.createdAt)}{" "}
-              {new Intl.DateTimeFormat("id-ID", {
+              }).format(message.createdAt)} 
+              ${new Intl.DateTimeFormat("id-ID", {
                 timeStyle: "long",
               })
                 .format(message.createdAt)
-                .replaceAll(".", ":")}
+                .replaceAll(".", ":")}`}
             </p>
           </li>
         ))}

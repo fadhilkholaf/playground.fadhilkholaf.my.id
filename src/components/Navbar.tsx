@@ -7,6 +7,7 @@ const menus: Menu[] = [
   { name: "Keyboard Controll", url: "/keyboard-controll" },
   { name: "Badge", url: "/badge" },
   { name: "Floating", url: "/floating" },
+  { name: "Trail", url: "/trail" },
 ];
 
 const Navbar = () => {

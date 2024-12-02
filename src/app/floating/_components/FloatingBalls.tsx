@@ -42,7 +42,7 @@ const FloatingBalls = () => {
         new THREE.Vector3()
           .copy(boxRef1.current.translation())
           .negate()
-          .add({ x: 0, y: 2, z: 0 })
+          .add({ x: 0, y: 0, z: 0 })
           .multiplyScalar(0.2),
         false,
       );
@@ -52,12 +52,12 @@ const FloatingBalls = () => {
   return (
     <group
       position={[
-        THREE.MathUtils.randFloatSpread(100),
-        THREE.MathUtils.randFloatSpread(100),
-        THREE.MathUtils.randFloatSpread(100),
+        THREE.MathUtils.randFloatSpread(50),
+        THREE.MathUtils.randFloatSpread(50),
+        THREE.MathUtils.randFloatSpread(50),
       ]}
     >
-      <RigidBody ref={boxRef1} angularDamping={1} linearDamping={1.5}>
+      <RigidBody ref={boxRef1} linearDamping={1.5}>
         <mesh>
           <boxGeometry />
           <meshNormalMaterial />

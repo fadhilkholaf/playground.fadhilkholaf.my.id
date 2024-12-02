@@ -9,8 +9,8 @@ import Pointer from "./Pointer";
 
 const FloatingScene = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
-      <Physics debug gravity={[0, -20, 0]}>
+    <Canvas camera={{ position: [0, 0, 20], fov: 45 }}>
+      <Physics debug gravity={[0, 0, 0]}>
         <Pointer />
         <FloatingBalls />
         <FloatingBalls />

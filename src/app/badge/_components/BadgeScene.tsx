@@ -11,7 +11,12 @@ extend({ UnrealBloomPass });
 
 const BadgeScene = () => {
   return (
-    <Canvas shadows camera={{ fov: 45, position: [0, 0, 8] }}>
+    <Canvas
+      shadows
+      camera={{ fov: 45, position: [0, 0, 8] }}
+      dpr={[0, 1]}
+      frameloop="demand"
+    >
       <Physics debug gravity={[0, -45, 0]}>
         <Badge />
       </Physics>

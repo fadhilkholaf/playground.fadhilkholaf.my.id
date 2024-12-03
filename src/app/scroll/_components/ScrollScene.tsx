@@ -1,6 +1,6 @@
 "use client";
 
-import { Effects } from "@react-three/drei";
+import { AsciiRenderer, Effects } from "@react-three/drei";
 import { Canvas, extend } from "@react-three/fiber";
 import { UnrealBloomPass } from "three/examples/jsm/Addons.js";
 
@@ -10,7 +10,12 @@ extend({ UnrealBloomPass });
 
 const ScrollScene = () => {
   return (
-    <Canvas shadows camera={{ fov: 45, position: [-3, 0, 3] }}>
+    <Canvas
+      shadows
+      camera={{ fov: 45, position: [-3, 0, 3] }}
+      dpr={[0, 0.5]}
+      frameloop="demand"
+    >
       <Scroll />
       <ambientLight intensity={0.01} />
       <pointLight

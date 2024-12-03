@@ -1,6 +1,6 @@
 "use client";
 
-import { AsciiRenderer, Effects } from "@react-three/drei";
+import { Effects } from "@react-three/drei";
 import { Canvas, extend } from "@react-three/fiber";
 import { UnrealBloomPass } from "three/examples/jsm/Addons.js";
 

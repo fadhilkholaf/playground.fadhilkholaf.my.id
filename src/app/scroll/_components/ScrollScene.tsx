@@ -12,8 +12,8 @@ const ScrollScene = () => {
   return (
     <Canvas
       shadows
-      camera={{ fov: 45, position: [-3, 0, 3] }}
-      dpr={[0, 1]}
+      camera={{ fov: 60, position: [-5, 0, 5] }}
+      dpr={[0.5, 1]}
       frameloop="demand"
     >
       <Scroll />
@@ -21,12 +21,17 @@ const ScrollScene = () => {
       <pointLight
         castShadow
         position={[0, 0, 3]}
-        intensity={5}
+        intensity={1}
         shadow-mapSize-height={2048}
         shadow-mapSize-width={2048}
       />
       <Effects>
-        <unrealBloomPass args={[undefined, 1, 1, 0.1]} />
+        <unrealBloomPass
+          mipmapBlur
+          radius={0.75}
+          luminanceThreshold={0.8}
+          intensity={5}
+        />
       </Effects>
     </Canvas>
   );

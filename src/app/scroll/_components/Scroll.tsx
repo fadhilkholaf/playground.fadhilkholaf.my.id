@@ -7,16 +7,24 @@ const Pages = () => {
   return (
     <>
       <mesh position={[0, height * 1, 0]} castShadow receiveShadow>
-        <boxGeometry />
-        <meshStandardMaterial color={"pink"} />
+        <sphereGeometry args={[0.5]} />
+        <meshStandardMaterial
+          color={"pink"}
+          emissive={"pink"}
+          emissiveIntensity={1}
+        />
       </mesh>
       <mesh position={[0, -height * 0, 0]} castShadow receiveShadow>
         <boxGeometry />
         <meshStandardMaterial color={"green"} />
       </mesh>
       <mesh position={[0, -height * 1, 0]} castShadow receiveShadow>
-        <boxGeometry />
-        <meshStandardMaterial color={"pink"} />
+        <sphereGeometry args={[0.5]} />
+        <meshStandardMaterial
+          color={"pink"}
+          emissive={"pink"}
+          emissiveIntensity={1}
+        />
       </mesh>
       <mesh position={[0, -height * 2, 0]} castShadow receiveShadow>
         <boxGeometry />
@@ -33,7 +41,7 @@ const Scroll = () => {
         <Pages />
       </ScrollPage>
       <mesh position={[0, 0, -3]} receiveShadow castShadow>
-        <planeGeometry args={[5, 5]} />
+        <planeGeometry args={[10, 10]} />
         <meshStandardMaterial />
       </mesh>
     </ScrollControls>

@@ -52,24 +52,24 @@ const FloatingBalls = () => {
   return (
     <group
       position={[
-        THREE.MathUtils.randFloatSpread(50),
-        THREE.MathUtils.randFloatSpread(50),
-        THREE.MathUtils.randFloatSpread(50),
+        THREE.MathUtils.randFloatSpread(100),
+        THREE.MathUtils.randFloatSpread(100),
+        THREE.MathUtils.randFloatSpread(100),
       ]}
     >
-      <RigidBody ref={boxRef1} linearDamping={1.5}>
+      <RigidBody ref={boxRef1} linearDamping={1.5} angularDamping={1.5}>
         <mesh>
           <boxGeometry />
           <meshNormalMaterial />
         </mesh>
       </RigidBody>
-      <RigidBody ref={boxRef2} linearDamping={1.5}>
+      <RigidBody ref={boxRef2} linearDamping={1.5} angularDamping={1.5}>
         <mesh>
           <boxGeometry />
           <meshNormalMaterial />
         </mesh>
       </RigidBody>
-      <RigidBody ref={boxRef3} linearDamping={1.5}>
+      <RigidBody ref={boxRef3} linearDamping={1.5} angularDamping={1.5}>
         <mesh>
           <boxGeometry />
           <meshNormalMaterial />

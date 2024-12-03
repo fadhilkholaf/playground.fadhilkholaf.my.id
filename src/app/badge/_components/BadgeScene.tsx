@@ -19,7 +19,7 @@ const BadgeScene = () => {
       <Stars fade />
       <Sparkles count={200} scale={[20, 20, 10]} size={1.5} speed={2} />
       <Effects>
-        <unrealBloomPass threshold={1} strength={1.0} radius={0.5} />
+        <unrealBloomPass args={[undefined, 1.5, 1, 0]} />
       </Effects>
     </Canvas>
   );

@@ -56,7 +56,7 @@ const Chat = ({
             ref={index === messages.length - 1 ? bottomRef : null}
           >
             <p>{message.content}</p>
-            <p className="text-xs">
+            <p className="text-nowrap text-xs">
               {`${new Intl.DateTimeFormat("id-ID", {
                 day: "numeric",
                 month: "short",

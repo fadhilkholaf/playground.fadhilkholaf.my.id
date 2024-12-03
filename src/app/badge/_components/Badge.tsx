@@ -176,7 +176,7 @@ const Badge = () => {
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="white" lineWidth={0.1} />
+        <meshLineMaterial color="cyan" lineWidth={0.25} />
       </mesh>
       <mesh ref={rotatingBox} castShadow receiveShadow position={[1, 1, 3]}>
         <boxGeometry args={[0.5, 0.5]} />

@@ -8,6 +8,7 @@ const menus: Menu[] = [
   { name: "Badge", url: "/badge" },
   { name: "Floating", url: "/floating" },
   { name: "Trail", url: "/trail" },
+  { name: "Scroll", url: "/scroll" },
 ];
 
 const Navbar = () => {

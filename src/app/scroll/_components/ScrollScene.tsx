@@ -13,7 +13,7 @@ const ScrollScene = () => {
     <Canvas
       shadows
       camera={{ fov: 45, position: [-3, 0, 3] }}
-      dpr={[0, 0.5]}
+      dpr={[0, 1]}
       frameloop="demand"
     >
       <Scroll />

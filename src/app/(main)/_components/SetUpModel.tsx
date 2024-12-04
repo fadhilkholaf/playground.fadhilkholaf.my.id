@@ -25,7 +25,7 @@ export default function SetUpModel() {
     "/models/setup-compressed.glb",
   ) as GLTFResult;
   return (
-    <group position={[0, -0.5, 0]} dispose={null}>
+    <group position={[0, -1, -0.5]} dispose={null}>
       <group position={[0.15, 0, 0]}>
         <mesh
           name="table"

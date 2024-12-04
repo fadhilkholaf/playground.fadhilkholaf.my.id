@@ -29,7 +29,7 @@ const SetUpScene = () => {
     <Canvas
       shadows
       dpr={[0, mobile ? 0.75 : 1]}
-      camera={{ position: [0, 1.5, mobile ? 5 : 3], fov: mobile ? 75 : 60 }}
+      camera={{ position: [0, 1.5, 3], fov: mobile ? 60 : 45 }}
     >
       <OrbitControls
         dampingFactor={0.1}
@@ -39,6 +39,7 @@ const SetUpScene = () => {
         maxPolarAngle={Math.PI / 2}
         minAzimuthAngle={-Math.PI / 2}
         maxAzimuthAngle={Math.PI / 2}
+        makeDefault
       />
       <SetUp />
       {!mobile && (

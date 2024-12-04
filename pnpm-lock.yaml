@@ -50,6 +50,9 @@ importers:
       three:
         specifier: ^0.171.0
         version: 0.171.0
+      three-stdlib:
+        specifier: ^2.34.0
+        version: 2.34.0(three@0.171.0)
     devDependencies:
       '@types/node':
         specifier: ^20.17.9

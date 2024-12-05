@@ -12,7 +12,6 @@ const SetUpScene = () => {
 
   const isMobile = () => {
     setMobile(innerWidth < 768);
-    console.log(innerWidth);
   };
 
   useEffect(() => {
@@ -27,8 +26,7 @@ const SetUpScene = () => {
 
   return (
     <Canvas
-      shadows
-      dpr={[0, mobile ? 0.75 : 1]}
+      dpr={[0, mobile ? 0.25 : 0.5]}
       camera={{ position: [0, 1.5, 3], fov: mobile ? 60 : 45 }}
     >
       <OrbitControls

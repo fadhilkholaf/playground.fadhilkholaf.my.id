@@ -9,7 +9,7 @@ const HomePage = () => {
       <Suspense fallback={<LoadingPage />}>
         <section className="pointer-events-none fixed z-40 flex h-screen w-full flex-col items-center justify-center">
           <p>Playground</p>
-          <h1 className="text-center text-5xl font-bold tracking-wider">
+          <h1 className="text-center text-5xl font-bold tracking-wider md:text-9xl">
             {"Fadhil Kholaf".split("").map((item, index) => (
               <span key={index}>{item}</span>
             ))}

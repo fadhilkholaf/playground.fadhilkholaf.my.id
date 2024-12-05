@@ -13,6 +13,7 @@ const menus: Menu[] = [
   { name: "Floating", url: "/floating" },
   { name: "Trail", url: "/trail" },
   { name: "Scroll", url: "/scroll" },
+  { name: "Math", url: "/math" },
 ];
 
 const Navbar = () => {

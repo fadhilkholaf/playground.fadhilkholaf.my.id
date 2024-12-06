@@ -7,6 +7,7 @@ import { Menu } from "@/lib/types";
 
 const menus: Menu[] = [
   { name: "Home", url: "/" },
+  { name: "Attribution", url: "/attribution" },
   { name: "Chat", url: "/chat" },
   { name: "Keyboard Controll", url: "/keyboard-controll" },
   { name: "Badge", url: "/badge" },
@@ -14,6 +15,7 @@ const menus: Menu[] = [
   { name: "Trail", url: "/trail" },
   { name: "Scroll", url: "/scroll" },
   { name: "Math", url: "/math" },
+  { name: "Math Sine", url: "/math-sine" },
 ];
 
 const Navbar = () => {

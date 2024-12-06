@@ -128,7 +128,7 @@ const MathPage = () => {
             style={{
               top: `calc(50% + ${(Math.sin(theta) * 300).toFixed(2)}px)`,
               left: `calc(50% + ${(Math.cos(theta) * 300).toFixed(2)}px)`,
-              opacity: `${prefix}`,
+              opacity: `${Math.abs(prefix)}`,
               backgroundColor: `${color}`,
             }}
           >

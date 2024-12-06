@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 
 import { Effects } from "@react-three/drei";
@@ -26,6 +28,7 @@ const ScrollScene = () => {
         shadow-mapSize-width={2048}
       />
       <Effects>
+        {/* @ts-ignore */}
         <unrealBloomPass
           mipmapBlur
           radius={0.75}

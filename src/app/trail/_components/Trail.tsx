@@ -36,7 +36,7 @@ const TrailShaderMaterial = {
 };
 
 const Trail = () => {
-  const materialRef = useRef<ShaderMaterial>();
+  const materialRef = useRef<ShaderMaterial>(null);
   const [texture, onMove] = useTrailTexture({
     intensity: 0.5,
   });

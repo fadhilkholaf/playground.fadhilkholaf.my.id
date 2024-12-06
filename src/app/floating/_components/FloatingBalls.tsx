@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
@@ -12,8 +12,16 @@ const FloatingBalls = () => {
   const boxRef2 = useRef<RapierRigidBody>(null);
   const boxRef3 = useRef<RapierRigidBody>(null);
 
-  useRopeJoint(boxRef1, boxRef2, [[0, -0.5, 0], [0, 0.5, 0], 0.5]);
-  useRopeJoint(boxRef2, boxRef3, [[0, -0.5, 0], [0, 0.5, 0], 0.5]);
+  useRopeJoint(
+    boxRef1 as RefObject<RapierRigidBody>,
+    boxRef2 as RefObject<RapierRigidBody>,
+    [[0, -0.5, 0], [0, 0.5, 0], 0.5],
+  );
+  useRopeJoint(
+    boxRef2 as RefObject<RapierRigidBody>,
+    boxRef3 as RefObject<RapierRigidBody>,
+    [[0, -0.5, 0], [0, 0.5, 0], 0.5],
+  );
 
   useFrame(({ camera, pointer }) => {
     gsap.to(lerpedLookAtX, {

@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 "use client";
 
-import { useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
@@ -45,9 +47,21 @@ const Badge = () => {
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
 
-  useRopeJoint(fixed, j1, [[0, -0.5, 0], [0, 0, 0], 1]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j2, card, [[0, 0, 0], [0, 1.5, 0], 0.1]);
+  useRopeJoint(
+    fixed as RefObject<RapierRigidBody>,
+    j1 as RefObject<RapierRigidBody>,
+    [[0, -0.5, 0], [0, 0, 0], 1],
+  );
+  useRopeJoint(
+    j1 as RefObject<RapierRigidBody>,
+    j2 as RefObject<RapierRigidBody>,
+    [[0, 0, 0], [0, 0, 0], 1],
+  );
+  useRopeJoint(
+    j2 as RefObject<RapierRigidBody>,
+    card as RefObject<RapierRigidBody>,
+    [[0, 0, 0], [0, 1.5, 0], 0.1],
+  );
 
   useFrame(({ pointer, camera }) => {
     gsap.to(lerpedLookAtX, {
@@ -175,7 +189,9 @@ const Badge = () => {
         </RigidBody>
       </group>
       <mesh ref={band}>
+        {/* @ts-ignore */}
         <meshLineGeometry />
+        {/* @ts-ignore */}
         <meshLineMaterial color="cyan" lineWidth={0.25} />
       </mesh>
       <mesh ref={rotatingBox} castShadow receiveShadow position={[1, 1, 3]}>

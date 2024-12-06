@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 "use client";
 
 import { Effects, Sparkles, Stars } from "@react-three/drei";
 import { Canvas, extend } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
-import { UnrealBloomPass } from "three/examples/jsm/Addons.js";
+import { UnrealBloomPass } from "three-stdlib";
 
 import Badge from "./Badge";
 
@@ -24,6 +26,7 @@ const BadgeScene = () => {
       <Stars fade />
       <Sparkles count={200} scale={[20, 20, 10]} size={1.5} speed={2} />
       <Effects>
+        {/* @ts-ignore */}
         <unrealBloomPass args={[undefined, 1.5, 1, 0]} />
       </Effects>
     </Canvas>

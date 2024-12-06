@@ -25,7 +25,7 @@ const MathSinePage = () => {
           x: Math.abs(Math.sin(progress)),
           y:
             noise(progress * (index - objectHalf), 0) *
-            Math.sin(progress * Math.PI),
+            Math.sin(progress * Math.PI * 0.5),
         })),
       );
 
@@ -56,8 +56,8 @@ const MathSinePage = () => {
                 "bg-orange-300": index % 5 === 4,
               })}
               style={{
-                transform: `translate(${(index - objectHalf ? index - objectHalf : 0.5) * (item.x * 2) * 64}px, ${
-                  item.y * 256
+                transform: `translate(${(index - objectHalf ? index - objectHalf : 0.5) * (item.x * 2) * 128}px, ${
+                  item.y * 4
                 }px)`,
               }}
             >

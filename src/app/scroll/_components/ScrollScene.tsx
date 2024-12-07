@@ -29,12 +29,7 @@ const ScrollScene = () => {
       />
       <Effects>
         {/* @ts-ignore */}
-        <unrealBloomPass
-          mipmapBlur
-          radius={0.75}
-          luminanceThreshold={0.8}
-          intensity={5}
-        />
+        <unrealBloomPass radius={0.75} luminanceThreshold={0.8} intensity={5} />
       </Effects>
     </Canvas>
   );

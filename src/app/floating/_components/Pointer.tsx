@@ -21,7 +21,7 @@ const Pointer = () => {
 
   return (
     <RigidBody type="kinematicPosition" ref={pointerRef} colliders={false}>
-      <BallCollider args={[1]} />
+      <BallCollider args={[0.5]} />
     </RigidBody>
   );
 };

@@ -16,6 +16,7 @@ const menus: Menu[] = [
   { name: "Scroll", url: "/scroll" },
   { name: "Math", url: "/math" },
   { name: "Math Sine", url: "/math-sine" },
+  { name: "Strip Lamp", url: "/strip-lamp" },
 ];
 
 const Navbar = () => {

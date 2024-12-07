@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@prisma/client": "6.0.0",
-    "@react-three/drei": "^9.119.0",
-    "@react-three/fiber": "9.0.0-alpha.8",
+    "@react-three/drei": "^9.120.2",
+    "@react-three/fiber": "9.0.0-rc.1",
     "@react-three/rapier": "^1.5.0",
     "ably": "^2.5.0",
     "clsx": "^2.1.1",
@@ -23,7 +23,6 @@
     "nextjs-toploader": "^3.7.15",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "simplex-noise": "^4.0.3",
     "tailwind-merge": "^2.5.5",
     "three": "^0.171.0",
     "three-stdlib": "^2.34.0"
@@ -36,10 +35,10 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "15.0.4",
     "postcss": "^8.4.49",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "prisma": "^6.0.1",
-    "tailwindcss": "^3.4.15",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
   },
   "pnpm": {

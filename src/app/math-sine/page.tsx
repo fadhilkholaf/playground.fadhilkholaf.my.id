@@ -2,32 +2,19 @@
 
 import { useEffect, useState } from "react";
 
-import { createNoise2D } from "simplex-noise";
-
 import { cn } from "@/lib/utils";
 
 const MathSinePage = () => {
-  const object = 23;
+  const object = 11;
   const objectHalf = Math.floor(object / 2);
 
-  const [number, setNumber] = useState<{ x: number; y: number }[]>(
-    Array(object).fill({ x: 0, y: 0 }),
-  );
-
-  const noise = createNoise2D();
+  const [number, setNumber] = useState<number>(0);
 
   useEffect(() => {
     const animation = (time: number) => {
-      const progress = time / 2500;
+      const progress = time / 5000;
 
-      setNumber((prevNumber) =>
-        prevNumber.map((_, index) => ({
-          x: Math.abs(Math.sin(progress)),
-          y:
-            noise(progress * (index - objectHalf), 0) *
-            Math.sin(progress * Math.PI * 0.5),
-        })),
-      );
+      setNumber(Math.sin(progress));
 
       requestAnimationFrame(animation);
     };
@@ -40,12 +27,12 @@ const MathSinePage = () => {
       {[...Array(object).keys()].map((_, index) => (
         <p
           key={index}
-          className="fixed flex"
+          className="animate-rotate fixed flex"
           style={{
-            transform: `rotate(${Math.PI * (index * 10)}deg)`,
+            animationDuration: `${index + 5}s`,
           }}
         >
-          {number.map((item, index) => (
+          {[...Array(object).keys()].map((_, index) => (
             <span
               key={index}
               className={cn("block p-2 font-bold text-black", {
@@ -56,9 +43,7 @@ const MathSinePage = () => {
                 "bg-orange-300": index % 5 === 4,
               })}
               style={{
-                transform: `translate(${(index - objectHalf ? index - objectHalf : 0.5) * (item.x * 2) * 128}px, ${
-                  item.y * 4
-                }px)`,
+                transform: `translate(${(index - objectHalf ? index - objectHalf : 0.5) * number * 256}px, 0px)`,
               }}
             >
               {index}

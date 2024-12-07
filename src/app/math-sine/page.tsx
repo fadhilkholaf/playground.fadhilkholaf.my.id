@@ -12,7 +12,7 @@ const MathSinePage = () => {
 
   useEffect(() => {
     const animation = (time: number) => {
-      const progress = time / 5000;
+      const progress = time / 1500;
 
       setNumber(Math.sin(progress));
 

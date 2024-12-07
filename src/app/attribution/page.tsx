@@ -23,6 +23,10 @@ const menus: Menu[] = [
     name: "Math for creative developers",
     url: "https://threejs-workshops.com/",
   },
+  {
+    name: "Strip lamp",
+    url: "https://x.com/artur_bien/status/1864337811093987335",
+  },
 ];
 
 const AttributionPage = () => {

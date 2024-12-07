@@ -27,7 +27,9 @@ const MathPage = () => {
               opacity: `${(Math.abs(number / 2) * (Math.abs(index - 50) / 50)) % 1}`,
             }}
           >
-            A
+            {/* A */}
+
+            {index}
           </span>
         ))}
       </p>
@@ -41,7 +43,9 @@ const MathPage = () => {
               opacity: `${(Math.sin(-index) * number) % 1}`,
             }}
           >
-            A
+            {/* A */}
+
+            {index}
           </span>
         ))}
       </p>
@@ -55,7 +59,9 @@ const MathPage = () => {
               opacity: `${(Math.sin(index) * number) % 1}`,
             }}
           >
-            A
+            {/* A */}
+
+            {index}
           </span>
         ))}
       </p>
@@ -69,7 +75,9 @@ const MathPage = () => {
               opacity: `${Math.abs(((number / 2) * 2 * (index % 25)) % 1)}`,
             }}
           >
-            A
+            {/* A */}
+
+            {index}
           </span>
         ))}
       </p>
@@ -99,7 +107,9 @@ const MathPage = () => {
                 backgroundColor: `${color}`,
               }}
             >
-              A
+              {/* A */}
+
+              {index}
             </span>
           );
         })}
@@ -132,7 +142,9 @@ const MathPage = () => {
               backgroundColor: `${color}`,
             }}
           >
-            A
+            {/* A */}
+
+            {index}
           </span>
         );
       })}
@@ -177,13 +189,15 @@ const MathPage = () => {
               backgroundColor: `${color}`,
             }}
           >
-            {index % 6 === 1
+            {/* {index % 6 === 1
               ? "L"
               : index % 6 === 2 || index % 6 === 4
                 ? "I"
                 : index % 6 === 3
                   ? "C"
-                  : "A"}
+                  : "A"} */}
+
+            {index}
           </span>
         );
       })}

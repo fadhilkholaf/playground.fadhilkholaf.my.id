@@ -36,6 +36,9 @@ importers:
       keyv:
         specifier: 4.5.4
         version: 4.5.4
+      matter-js:
+        specifier: ^0.20.0
+        version: 0.20.0
       meshline:
         specifier: ^3.3.1
         version: 3.3.1(three@0.171.0)
@@ -61,6 +64,9 @@ importers:
         specifier: ^2.34.0
         version: 2.34.0(three@0.171.0)
     devDependencies:
+      '@types/matter-js':
+        specifier: ^0.19.8
+        version: 0.19.8
       '@types/node':
         specifier: ^20.17.9
         version: 20.17.9
@@ -492,6 +498,9 @@ packages:
 
   '@types/keyv@3.1.4':
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
+
+  '@types/matter-js@0.19.8':
+    resolution: {integrity: sha512-W2ZWG58Lijv/4v768NgpeyFqqiOyslmAU7qqM1Lhz4XBoUgGtZtPz4CjcOKYtqHIak14dvPldslQhltqLTWwsw==}
 
   '@types/node@20.17.9':
     resolution: {integrity: sha512-0JOXkRyLanfGPE2QRCwgxhzlBAvaRdCNMcvbd7jFfpmD4eEXll7LRwy5ymJmyeZqk7Nh7eD2LeUyQ68BbndmXw==}
@@ -1481,6 +1490,9 @@ packages:
     peerDependencies:
       '@types/three': '>=0.134.0'
       three: '>=0.134.0'
+
+  matter-js@0.20.0:
+    resolution: {integrity: sha512-iC9fYR7zVT3HppNnsFsp9XOoQdQN2tUyfaKg4CHLH8bN+j6GT4Gw7IH2rP0tflAebrHFw730RR3DkVSZRX8hwA==}
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
@@ -2637,6 +2649,8 @@ snapshots:
   '@types/keyv@3.1.4':
     dependencies:
       '@types/node': 20.17.9
+
+  '@types/matter-js@0.19.8': {}
 
   '@types/node@20.17.9':
     dependencies:
@@ -3830,6 +3844,8 @@ snapshots:
     dependencies:
       '@types/three': 0.170.0
       three: 0.171.0
+
+  matter-js@0.20.0: {}
 
   merge2@1.4.1: {}
 

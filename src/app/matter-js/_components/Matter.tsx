@@ -1,13 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import MATTER from "matter-js";
+import * as MATTER from "matter-js";
 
 const Matter = () => {
   const canvas = useRef<HTMLCanvasElement>(null!);
+  const [numberOfBalls, setNumberOfBalls] = useState<number>(0);
 
   useEffect(() => {
+    const setBalls = () => {
+      if (innerWidth > 768) {
+        setNumberOfBalls(1000);
+      } else {
+        setNumberOfBalls(500);
+      }
+    };
+
+    setBalls();
+
+    window.addEventListener("resize", () => {
+      setBalls();
+    });
+
     const { Engine, Render, Runner, Bodies, Mouse, Composite, Events } = MATTER;
 
     const engine = Engine.create();
@@ -19,43 +34,51 @@ const Matter = () => {
     });
 
     const { roof, rightWall, floor, leftWall } = {
-      roof: Bodies.rectangle(innerWidth / 2, -50, innerWidth, 100, {
-        isStatic: true,
-        friction: 1,
-        render: { visible: false },
-      }),
-      rightWall: Bodies.rectangle(
-        innerWidth + 50,
-        innerHeight / 2,
-        100,
+      roof: Bodies.rectangle(
+        innerWidth,
+        -innerHeight / 2,
+        innerWidth * 2,
         innerHeight,
         {
           isStatic: true,
-          friction: 1,
+          render: { visible: false },
+        },
+      ),
+      rightWall: Bodies.rectangle(
+        innerWidth * 1.5,
+        innerHeight,
+        innerWidth,
+        innerHeight * 2,
+        {
+          isStatic: true,
           render: { visible: false },
         },
       ),
       floor: Bodies.rectangle(
-        innerWidth / 2,
-        innerHeight + 50,
         innerWidth,
-        100,
+        innerHeight * 1.5,
+        innerWidth * 2,
+        innerHeight,
         {
           isStatic: true,
-          friction: 1,
           render: { visible: false },
         },
       ),
-      leftWall: Bodies.rectangle(-50, innerHeight / 2, 100, innerHeight, {
-        isStatic: true,
-        friction: 1,
-        render: { visible: false },
-      }),
+      leftWall: Bodies.rectangle(
+        -innerWidth,
+        innerHeight / 2,
+        innerWidth * 2,
+        innerHeight,
+        {
+          isStatic: true,
+          render: { visible: false },
+        },
+      ),
     };
 
     const mouse = Mouse.create(render.canvas);
 
-    const staticBall = Bodies.circle(100, 100, 50, {
+    const staticBall = Bodies.circle(0, 0, 50, {
       isStatic: true,
       friction: 1,
       render: { visible: false },
@@ -68,14 +91,15 @@ const Matter = () => {
         10,
         {
           friction: 1,
-          restitution: 0.5,
+          frictionAir: 0.001,
+          restitution: 0.25,
         },
       );
     };
 
     const balls: MATTER.Body[] = [];
 
-    for (let i = 0; i < 750; i++) {
+    for (let i = 0; i < numberOfBalls; i++) {
       balls.push(ball());
     }
 
@@ -94,52 +118,21 @@ const Matter = () => {
 
     Runner.run(runner, engine);
 
-    const interactionRadius = 100;
-    const maxForce = 0.000005;
-    let lastMousePosition = { x: 0, y: 0 };
-
     const mouseEffect = () => {
       MATTER.Body.setPosition(staticBall, mouse.position);
 
-      const mouseSpeed = MATTER.Vector.magnitude(
-        MATTER.Vector.sub(mouse.position, lastMousePosition),
-      );
-      lastMousePosition = { ...mouse.position };
-
-      balls.forEach((ball) => {
+      balls.forEach((particleA) => {
         const distance = MATTER.Vector.magnitude(
-          MATTER.Vector.sub(ball.position, staticBall.position),
+          MATTER.Vector.sub(staticBall.position, particleA.position),
         );
-        if (distance < interactionRadius) {
-          const forceMagnitude = Math.min(
-            (interactionRadius - distance) * maxForce * mouseSpeed,
-            0.1,
+        if (distance < 100) {
+          const force = MATTER.Vector.mult(
+            MATTER.Vector.normalise(
+              MATTER.Vector.sub(particleA.position, staticBall.position),
+            ),
+            0.00025 * (100 - distance),
           );
-          const direction = MATTER.Vector.normalise(
-            MATTER.Vector.sub(ball.position, staticBall.position),
-          );
-          MATTER.Body.applyForce(
-            ball,
-            ball.position,
-            MATTER.Vector.mult(direction, forceMagnitude),
-          );
-        }
-      });
-
-      balls.forEach((ball) => {
-        const distance = MATTER.Vector.magnitude(
-          MATTER.Vector.sub(ball.position, staticBall.position),
-        );
-        if (distance < interactionRadius) {
-          const forceMagnitude = (interactionRadius - distance) * maxForce;
-          const direction = MATTER.Vector.normalise(
-            MATTER.Vector.sub(ball.position, staticBall.position),
-          );
-          MATTER.Body.applyForce(
-            ball,
-            ball.position,
-            MATTER.Vector.mult(direction, forceMagnitude),
-          );
+          MATTER.Body.applyForce(particleA, particleA.position, force);
         }
       });
     };
@@ -152,8 +145,12 @@ const Matter = () => {
       Runner.stop(runner);
 
       Events.off(engine, "beforeUpdate", mouseEffect);
+
+      window.removeEventListener("resize", () => {
+        setBalls();
+      });
     };
-  }, [canvas]);
+  }, [canvas, numberOfBalls]);
 
   return <canvas ref={canvas} className="block"></canvas>;
 };

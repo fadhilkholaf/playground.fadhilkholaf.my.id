@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  transpilePackages: ["three"],
 };
 
 module.exports = nextConfig;

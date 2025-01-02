@@ -1,7 +1,12 @@
+import { Metadata } from "next";
 import { Suspense } from "react";
 
 import SetUpScene from "./_components/SetUpScene";
 import LoadingPage from "../loading";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
 
 const HomePage = () => {
   return (

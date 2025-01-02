@@ -27,6 +27,10 @@ const menus: Menu[] = [
     name: "Strip lamp",
     url: "https://x.com/artur_bien/status/1864337811093987335",
   },
+  {
+    name: "WebGL water distortion effect",
+    url: "https://codepen.io/ksenia-k/pen/RwXVMMY",
+  },
 ];
 
 const AttributionPage = () => {

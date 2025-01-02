@@ -18,6 +18,7 @@ const menus: Menu[] = [
   { name: "Math Sine", url: "/math-sine" },
   { name: "Strip Lamp", url: "/strip-lamp" },
   { name: "2D Physics", url: "/matter-js" },
+  { name: "Water Distortion", url: "/water-distortion" },
 ];
 
 const Navbar = () => {

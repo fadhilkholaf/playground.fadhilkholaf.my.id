@@ -12,7 +12,7 @@ import "./globals.css";
 const geist = Geist({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "fadhilkholaf",
+  title: { default: "fadhilkholaf", template: "%s | fadhilkholaf" },
   description: "fadhilkholaf laboratory, playground, and experiment site",
 };
 

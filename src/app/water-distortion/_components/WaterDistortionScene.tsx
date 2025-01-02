@@ -6,8 +6,12 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
 import LoadingPage from "@/app/loading";
-import PostProcessing from "./PostProcessing";
 import WaterDistortion from "./WaterDistortion";
+import dynamic from "next/dynamic";
+
+const PostProcessing = dynamic(() => import("./PostProcessing"), {
+  ssr: false,
+});
 
 const WaterDistortionScene = () => {
   return (
